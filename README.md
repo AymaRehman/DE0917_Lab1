@@ -29,7 +29,7 @@ Run with:
 
 Software:  
 This code will work only on Windows, neither on Linux nor on MacOS as indicated in code comments.  
-`// directory path should be separated by one forward slash / withot any slash at the end `  
+`// directory path should be separated by one forward slash / without any slash at the end `  
 
 ## Main Arguments  
 
