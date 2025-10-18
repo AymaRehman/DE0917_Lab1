@@ -12,7 +12,7 @@
 // This program is expecting at least 2 and at most 5 arguments
 // -d or --dir and then source directory name, these are mandatory
 // -o or --output-dir and then output directory name, these are optional if omitted default will be created
-// directory path should be separated by one forward slash / withot any slash at the end 
+// directory path should be separated by one forward slash / without any slash at the end 
 // source file name, it's optional if omitted all .txt files in source directory will be processed
 
 // --------------------------------------------------------------------
@@ -560,7 +560,7 @@ int main(int argc, char **argv) {
         printf("Help:\n"
                 "-d or --dir and then source directory name, these are mandatory \n"
                 "-o or --output-dir and then output directory name, these are optional \n"
-                "directory path should be separated by one forward slash / withot any slash at the end \n"
+                "directory path should be separated by one forward slash / without any slash at the end \n"
                 "source .txt file name, it's optional \n"
             );
         return 1;
@@ -571,7 +571,7 @@ int main(int argc, char **argv) {
          printf("Help:\n"
                 "-d or --dir and then source directory name, these are mandatory \n"
                 "-o or --output-dir and then output directory name, these are optional \n"
-                "directory path should be separated by one forward slash / withot any slash at the end \n"
+                "directory path should be separated by one forward slash / without any slash at the end \n"
                 "source .txt file name, it's optional \n"
             );
 
@@ -608,7 +608,7 @@ int main(int argc, char **argv) {
              printf("Help:\n"
                 "-d or --dir and then source directory name, these are mandatory \n"
                 "-o or --output-dir and then output directory name, these are optional \n"
-                "directory path should be separated by one forward slash / withot any slash at the end \n"
+                "directory path should be separated by one forward slash / without any slash at the end \n"
                 "source .txt file name, it's optional \n"
             );
             return 1;
