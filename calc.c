@@ -3,7 +3,7 @@
 //                          AUTHOR: AYMA REHMAN
 //                         STUDENT ID: 241ADB165
 //====================================================================
-// Compile with:  gcc -v calc.c -o calc.exe
+// Compile with: gcc -v calc.c -o calc.exe
 // Run with: ./calc -d e:/c/source_folder -o e:/c/output_folder text-file_to_process.txt
 
 // --------------------------------------------------------------------
