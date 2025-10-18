@@ -26,3 +26,16 @@ Compile using GCC:
 
 Run with:  
 `./calc -d e:/c/source_folder -o e:/c/output_folder text-file_to_process.txt`  
+
+## Main Arguments  
+
+This program expects at least 2 and at most 5 arguments:  
+
+`-d or --dir and then source dirctory name`  
+These are mandatory.  
+
+` -o or --output-dir and then output directory name`   
+These are optional, however, if omitted, default will be created.  
+
+`source file name`  
+This is optional, however, if omitted, all .txt files in source directory will be processed.  
