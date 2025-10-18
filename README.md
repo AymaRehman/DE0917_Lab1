@@ -39,3 +39,14 @@ These are optional, however, if omitted, default will be created.
 
 `source file name`  
 This is optional, however, if omitted, all .txt files in source directory will be processed.  
+
+## Basic Arithmetic Parsing Details  
+
+- Supports integer and floating-point arithmetic  
+- Operator precedence (highest → lowest):  
+  - `** (right-associative)`  
+  - `*, / (left-associative)`  
+  - `+, - (left-associative)`  
+- Parentheses handled with correct precedence and associativity  
+- Division by zero triggers an error (ERROR:<position>)  
+- Invalid expressions report the first error character position  
