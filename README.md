@@ -81,3 +81,9 @@ Above resources were used solely to understand the implementation of certain log
 None of the code is copied, rather understood and applied in the assignment after understanding.  
 Concepts not part of references were already known to a good extent.  
 Only a few minor programming details including syntax were occassionally referred to at a basic level; hence, this is not included in the references.  
+
+## License  
+
+This project is submitted as part of a university assignment. All code is authored by Ayma Rehman.  
+
+
