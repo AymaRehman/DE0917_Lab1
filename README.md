@@ -31,7 +31,7 @@ Run with:
 
 This program expects at least 2 and at most 5 arguments:  
 
-`-d or --dir and then source dirctory name`  
+`-d or --dir and then source directory name`  
 These are mandatory.  
 
 ` -o or --output-dir and then output directory name`   
@@ -80,7 +80,7 @@ Assignments and Notes from the Course "Object Oriented Programming" for previous
 Above resources were used solely to understand the implementation of certain logics in C.  
 None of the code is copied, rather understood and applied in the assignment after understanding.  
 Concepts not part of references were already known to a good extent.  
-Only a few minor programming details including syntax were occassionally referred to at a basic level; hence, this is not included in the references.  
+Only a few minor programming details including syntax were occasionally referred to at a basic level; hence, this is not included in the references.  
 
 ## License  
 
