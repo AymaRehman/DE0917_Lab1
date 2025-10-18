@@ -27,6 +27,10 @@ Compile using GCC:
 Run with:  
 `./calc -d e:/c/source_folder -o e:/c/output_folder text-file_to_process.txt`  
 
+Software:  
+This code will work only on Windows, neither on Linux nor on MacOS as indicated in code comments.  
+`// directory path should be separated by one forward slash / withot any slash at the end `  
+
 ## Main Arguments  
 
 This program expects at least 2 and at most 5 arguments:  
