@@ -18,3 +18,11 @@ Write a C program that evaluates arithmetic expressions from text files using Py
 - Batch processing of multiple .txt files in a folder  
 - Comment lines starting with # (ignored during parsing)  
 - Custom output directory with default fallback  
+
+## Compilation Instructions
+
+Compile using GCC:  
+`gcc -v calc.c -o calc.exe`    
+
+Run with:  
+`./calc -d e:/c/source_folder -o e:/c/output_folder text-file_to_process.txt`  
