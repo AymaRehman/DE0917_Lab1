@@ -51,9 +51,9 @@ This is optional, however, if omitted, all .txt files in source directory will b
 - Division by zero triggers an error (ERROR:<position>)  
 - Invalid expressions report the first error character position  
 
-## REFERENCES  
+## References  
 
-### ONLINE WEBSITES ON GOOGLE:  
+### Online Websites On Google:  
 
 header libraries: https://www.geeksforgeeks.org/c/header-files-in-c-cpp-and-its-uses/  
 file handling: https://www.geeksforgeeks.org/c/basics-file-handling-c/  
@@ -70,12 +70,12 @@ command line arguments in C: https://www.geeksforgeeks.org/cpp/command-line-argu
 dynamic array: https://www.geeksforgeeks.org/c/dynamic-array-in-c/  
 stacks: https://www.geeksforgeeks.org/c/implement-stack-in-c/  
   
-### OTHER RESOURCES:  
+### Other Resources:  
  
 Presentations for Course, DE0917, "Programming Languages(English)(1),25/26-R" on ORTUS  
 Assignments and Notes from the Course "Object Oriented Programming" for previous semester (2) (in C++)   
 
-### ADDITIONAL NOTES:  
+### Additional Notes:  
 
 Above resources were used solely to understand the implementation of certain logics in C.  
 None of the code is copied, rather understood and applied in the assignment after understanding.  
