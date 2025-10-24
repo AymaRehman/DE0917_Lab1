@@ -271,24 +271,25 @@ The first lines of your `calc.c` must follow this format:
   
 ---    
   
-## Grading Checklist  
-  
-| Item | Points | Notes |      
-|Grade 4 baseline (int `+ -`, single line ≤100)|4|result or `ERROR:<pos>`|  
-|Correct `ERROR:<pos>` location|+1|First error only|  
-|Add `*` (int)|+1|Optional float support (challenge)|  
-|Add `/` (int or float) + div-by-zero detection |+1| Report at sensible position |  
-|Handle multi-line & up to 10,000 chars |+1| Additional challenge |  
-|Parentheses with proper precedence|+1|Keep error reporting|  
-|`#` comment lines; `-d/--dir` batch; `-o/--output-dir`|+1|Create folder if missing; default folder naming|  
-|`**` (right-assoc) + robust long-file handling|+2|Full score 10|  
-  
-Code quality modifiers (up to ±1):  
-* +0.5: clear structure, no UB, checks for I/O errors, robust CLI.  
-* +0.5: concise tests and documentation.  
-* −1.0: memory leaks/UB/crashes on normal inputs.  
-* +-2.0: I reserve right to adjust grade UP or DOWN, based on code clarity, comments  
-  
+## Grading Checklist
+
+| Item | Points | Notes |
+|:------|:-------:|:------|
+| Grade 4 baseline (int `+ -`, single line ≤100) | 4 | result or `ERROR:<pos>` |
+| Correct `ERROR:<pos>` location | +1 | First error only |
+| Add `*` (int) | +1 | Optional float support (challenge) |
+| Add `/` (int or float) + div-by-zero detection | +1 | Report at sensible position |
+| Handle multi-line & up to 10,000 chars | +1 | Additional challenge |
+| Parentheses with proper precedence | +1 | Keep error reporting |
+| `#` comment lines; `-d/--dir` batch; `-o/--output-dir` | +1 | Create folder if missing; default folder naming |
+| `**` (right-assoc) + robust long-file handling | +2 | Full score 10 |
+
+**Code quality modifiers (up to ±1):**
+- +0.5: clear structure, no UB, checks for I/O errors, robust CLI.  
+- +0.5: concise tests and documentation.  
+- −1.0: memory leaks/UB/crashes on normal inputs.  
+- ±2.0: instructor discretion for code clarity and comments.
+
 ---  
   
 ## Anti-cheating & Libraries  
