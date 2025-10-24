@@ -30,7 +30,7 @@
 | Error 2  |    ✅   | Passes as expected.                                                                                                   |
 | Error 3  |    ❌   | Fails — the program computes an incomplete expression instead of throwing an error.                                          |
 | Error 4  |    ✅   | Passes as expected.                                                                                                   |
-| Error 5  |   ⚠️   | Partial pass — the correct error is displayed, but the column number for the zero division error (where 0 appears at column 5) is not shown. |
+| Error 5 | ⚠️ | Partial pass — the correct error is displayed, but the column number for the zero division error (where 0 appears at column 5) is not shown. |
 | Error 6  |    ✅   | Passes, but with a positional mismatch: my implementation counts characters per line (starting from 1), whereas the expected output counts total characters across all lines. Therefore, my reported error column is 6 instead of 10. |
 | Error 7  |    ❌   | Fails — the code produces a result even though a closing bracket is missing.                                            |
 | Error 8  |    ❌   | Fails — the program throws an incorrect error due to not handling multiple parentheses correctly. When a multiplication operator appears next to a parenthesis, it triggers a “double operator” error                                  |
