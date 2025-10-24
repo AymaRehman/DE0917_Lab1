@@ -116,7 +116,7 @@ From highest to lowest:
     * Else print with `%.15g`.
   * Trailing spaces/newlines: one newline at end is fine.  
    
-  ----
+----
         
 ## Errors & Positions (Required)  
   
@@ -127,7 +127,7 @@ On the first encountered error, stop and write:
   * `12 + * 5` → error at `*` position.  
   * `((2+3)` → error at the place the parser expected `)` (you may choose to report at EOF position).  
   * `10/0` → division by zero; report at the start of `0` (or the `/`)—be consistent and document.  
-> Optional enhancement (not required for grade): You may also write ERROR:<line>:<col> in addition to the required format on the next line.
+> Optional enhancement (not required for grade): You may also write `ERROR:<line>:<col>` in addition to the required format on the next line.
    
 ---- 
   
@@ -269,5 +269,71 @@ The first lines of your `calc.c` must follow this format:
 // Compile with: gcc -O2 -Wall -Wextra -std=c17 -o calc calc.c  
 ```
   
+---    
+  
+## Grading Checklist  
+  
+| Item | Points | Notes |      
+|Grade 4 baseline (int `+ -`, single line ≤100)|4|result or `ERROR:<pos>`|  
+|Correct `ERROR:<pos>` location|+1|First error only|  
+|Add `*` (int)|+1|Optional float support (challenge)|  
+|Add `/` (int or float) + div-by-zero detection |+1| Report at sensible position |  
+|Handle multi-line & up to 10,000 chars |+1| Additional challenge |  
+|Parentheses with proper precedence|+1|Keep error reporting|  
+|`#` comment lines; `-d/--dir` batch; `-o/--output-dir`|+1|Create folder if missing; default folder naming|  
+|`**` (right-assoc) + robust long-file handling|+2|Full score 10|  
+  
+Code quality modifiers (up to ±1):  
+* +0.5: clear structure, no UB, checks for I/O errors, robust CLI.  
+* +0.5: concise tests and documentation.  
+* −1.0: memory leaks/UB/crashes on normal inputs.  
+* +-2.0: I reserve right to adjust grade UP or DOWN, based on code clarity, comments  
+  
 ---  
   
+## Anti-cheating & Libraries  
+  
+* Do not shell out to Python/BC/expr/etc.  
+* Only use standard C library (stdio/stdlib/string/ctype/math/errno/dirent/sys/stat).  
+* No parser generators for the core (flex/bison) — write your own tokenizer & parser.  
+* If you use code assistance such as LLMs (all prompts are required in comments as well as specific tool!)  
+* Relying fully on LLM or others is against spirit of this assignment and will hurt you  
+  
+---  
+  
+## Starter Test Ideas  
+  
+### Valid    
+* `42`  
+* `10 + 20 - 5`  
+* `2 * 3 + 4`  
+* `2 + 3 * 4`  
+* `(2 + 3) * 4`  
+* `2**3**2`  
+* With floats (if supported): `3/2`, `1.5*4`, `.5 + .25`, `1e3 + 2`  
+### Invalid  
+* `+` (no operand)  
+* `2 **` (trailing op)  
+* `2 /* 3`  
+* `((1+2)`  
+* `10/0`  
+* `2 ** ** 3`  
+  
+---   
+  
+## Timeline & Deliverables  
+  
+* Submit on Time  
+* -1 grade for being up to 1 week late  
+* -2 grade for being up to 2 weeks late  
+  
+---  
+  
+## Tips  
+  
+* Keep a global char index during scanning to make `ERROR:<pos>` trivial.
+* Store each token’s start index; on errors report the most relevant token’s start.
+* To print integers from double results, check `fabs(val - llround(val)) < 1e-12`.
+* For `**`, beware left-to-right bugs; test `2**3**2` rigorously.  
+  
+   
