@@ -114,5 +114,160 @@ From highest to lowest:
   * If mixed numeric:
     * If the final value is integral (e.g., `3.0`), print without decimal (e.g., `3`).
     * Else print with `%.15g`.
-* Trailing spaces/newlines: one newline at end is fine.
+  * Trailing spaces/newlines: one newline at end is fine.  
+   
+  ----
+        
+## Errors & Positions (Required)  
+  
+On the first encountered error, stop and write:  
+`ERROR:<pos>`  
+* `<pos>` is 1-based char index in the entire file (count `\n` as 1).  
+* Examples:   
+  * `12 + * 5` → error at `*` position.  
+  * `((2+3)` → error at the place the parser expected `)` (you may choose to report at EOF position).  
+  * `10/0` → division by zero; report at the start of `0` (or the `/`)—be consistent and document.  
+> Optional enhancement (not required for grade): You may also write ERROR:<line>:<col> in addition to the required format on the next line.
+   
+---- 
+  
+## Grammar (suggested, EBNF-ish, but you can use something else)  
+  
+You can implement via recursive descent or shunting-yard.  
+If no unary:  
+```
+expr    := term { ('+' | '-') term }  
+term    := power { ('*' | '/') power }    
+power   := primary { '**' primary }         // implement as right-associative  
+primary := NUMBER | '(' expr ')'    
+```
+If with unary:  
+```
+expr    := term { ('+' | '-') term }  
+term    := factor { ('*' | '/') factor }  
+factor  := power  
+power   := unary { '**' unary }             // right-assoc: parse power -> unary ( '**' power )?  
+unary   := ('+' | '-') unary | primary  
+primary := NUMBER | '(' expr ')'  
+```
+  
+---
+  
+## Examples  
+  
+### Simple  
+   
+Input (`task1.txt`):  
+`2 + 2`  
+Output file:  
+`task1_name_lastname_studentid.txt`  
+Contents:  
+`4`  
+  
+### Error with position  
+   
+`7 + * 3`  
+`*` is the 5th character (assuming single spaces). Output:  
+`ERROR:5`
+  
+### Parentheses & precedence  
+  
+```  
+2 + 3*4  
+(2 + 3) * 4  
+```  
+→ `14` and `20`  
+  
+### Power (Grade 10)  
+  
+`2**3**2`  
+→ `512`  
+  
+### Comments & multi-file (Grade 9+)  
+  
+```
+# this is ignored  
+2 + 3  
+```  
+→ `5`  
 
+## Implementation Hints (C, GCC on Ubuntu/Codespaces)  
+
+* Tokenizer: produce a stream of tokens (NUMBER, PLUS, MINUS, STAR, SLASH, POW, LPAREN, RPAREN, EOL/EOF) with each token carrying start index (1-based) for error reporting.  
+* Numbers: parse with `strtoll` (int) and/or `strtod` (double). Keep original char index for error pointing.  
+* Parsing:  
+  * Recursive descent is straightforward and keeps precedence clear.  
+  * For `**` right-associativity, implement `power := unary ('**' power)?`.  
+* Big input (Grade 10): stream the file into memory (e.g., `mmap` or `fread`), but avoid quadratic concatenation. Tokenize once, then parse.  
+* Error handling:  
+  * Define a single function `fail(pos, message)` that stores the first error position.  
+  * Return early to short-circuit evaluation.  
+* Division by zero:  
+  * For ints: `b == 0` → error at token `b`.  
+  * For floats: if divisor numerically equals 0.0, treat as error (do not return `inf`).  
+* Output directory:  
+  * Use `mkdir` (POSIX) with `0775`. If it exists, proceed.  
+  * Build paths with `snprintf` safely.  
+* Globbing (`-d`): read directory entries, include files ending with `.txt` (case-sensitive).  
+* Comments: skip a line if first non-space char is `#`.  
+* Makefile: provide `make`, `make test`, `make run`.
+  
+---
+  
+## 📤 Project Submission Instructions  
+  
+You must submit exactly one file:  
+`calc.c`  
+  
+### File Header (Mandatory & Optional Lines)  
+  
+The first lines of your `calc.c` must follow this format:  
+```  
+// Name Lastname StudentID  
+// (optional) GitHub repository link for this assignment  
+// Compilation instructions (e.g., gcc -O2 -Wall -Wextra -std=c17 -o calc calc.c)  
+```  
+  
+* Line 1: your full Name, Lastname, StudentID  
+* Line 2 (optional): link to your GitHub repo for this project.  
+  * If provided and the repo is well-structured, it may improve grading.  
+* Next lines: any special compilation or run instructions if your program needs them (beyond standard `gcc`).  
+  
+---  
+  
+## Code Commenting Requirements  
+  
+* Your `calc.c` must contain plentiful, clear, and meaningful comments.  
+* Focus on explaining WHY you are doing something, not just what the code does.  
+  * ✅ Good example:  
+    `// Using recursive descent parsing here because it naturally reflects operator precedence`  
+  *❌ Bad example:  
+    `// Add x and y`  
+* If you use external resources (books, StackOverflow answers, documentation, AI prompts, etc.),  
+  * cite them in comments at the relevant place in the code.  
+  * Example:  
+    ```
+    // Tokenizer logic inspired by K&R Chapter 5 example  
+    // Prompt used with ChatGPT: "recursive descent parser in C for arithmetic"  
+    ```
+   
+---    
+  
+## Grading Notes  
+  
+* Unclear, missing, or low-quality comments will lower your grade.  
+* Bad or misleading comments are worse than no comments.  
+* Explicitly citing resources you used is required. Failure to do so will negatively impact the grade.  
+-- 
+👉 Only `calc.c` will be accepted. Do not upload Makefiles, executables, or multiple `.c/.h` files.  
+--
+  
+## 📑 Sample `calc.c` File Header  
+```  
+// Alice Johnson 221234  
+// https://github.com/alicejohnson/c-final-project   <-- optional  
+// Compile with: gcc -O2 -Wall -Wextra -std=c17 -o calc calc.c  
+```
+  
+---  
+  
