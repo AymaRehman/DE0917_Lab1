@@ -48,5 +48,29 @@ The file contains either the result (single line) or `ERROR:<pos>.`
 * Same as Grade 4 plus:  
 * Accurate error position: if the first error is at character 57, output `ERROR:57`.   
   * Examples of errors: invalid token, unexpected end, two operators in a row, leading operator without operand, etc.  
+  
+### Grade 6/10 — Multiplication (+ optional floats)  
+  
+* Add `*` (binary).
+* Additional challenge: support floats (64-bit) mixed with ints.
+  * If floats are supported, print using `%.15g` (see Output formatting below).
+* Still single line ≤ 100 chars.
+  
+### Grade 7/10 — Division (+ big files challenge)
 
+* Add `/` (true division if floats supported; otherwise integer division).  
+* Division by zero ⇒ `ERROR:<pos>` where `<pos>` is the starting char index of the offending divisor token (or the `/` token—either is acceptable if documented).  
+* Additional challenge: allow multiple lines and inputs up to 10,000 characters total.  
+  
+### Grade 8/10 — Parentheses  
+  
+* Add `(` `)` with correct precedence and associativity.  
+* Error reporting must still work (unmatched paren should point to the problematic paren or place where the closing/opening was expected).  
+  
+### Grade 9/10 — Comments & Batch Mode   
+  
+* Ignore full lines that start with `#` (Pythonic line comments).  
+* Support `-d/--dir` to process all `*.txt` in a folder.  
+* Support `-o/--output-dir` to choose/create output folder.  
+* Default folder behavior when `-o` not provided as specified above.   
 
