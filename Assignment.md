@@ -72,5 +72,14 @@ The file contains either the result (single line) or `ERROR:<pos>.`
 * Ignore full lines that start with `#` (Pythonic line comments).  
 * Support `-d/--dir` to process all `*.txt` in a folder.  
 * Support `-o/--output-dir` to choose/create output folder.  
-* Default folder behavior when `-o` not provided as specified above.   
+* Default folder behavior when `-o` not provided as specified above.  
+  
+### Grade 10/10 — Exponentiation & No Input Size Guarantees  
+  
+* Add Python power operator: `**`  
+  * Right-associative (e.g., `2**3**2 == 2**(3**2) == 512`).  
+  * Higher precedence than `*` `/` and `+` `-`.  
+  * Precedence is just below unary operators (if you implement unary; see below).  
+* No specific length limits beyond “fits in Codespaces VM” (i.e., handle very long files efficiently).  
+* Maintain all prior features and error reporting.  
 
