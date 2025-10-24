@@ -32,4 +32,21 @@ The file contains either the result (single line) or `ERROR:<pos>.`
 * Whitespace may appear anywhere.  
 * At minimum (grade 4–6) inputs are single line ≤ 100 chars (later grades extend this).  
 * Expressions can be integer and, for higher grades, float (IEEE 754 double).  
+  
+## Features by Grade (Rubric)  
+  
+### Grade 4/10 — Minimal Pass  
+  
+* Single line (≤ 100 chars).  
+* Integers only (base-10, optional leading `+`/`-`).  
+* Operators: `+` `-` (binary).  
+* Output: numeric result (as integer text).  
+* On any parse/eval error: `ERROR:<pos>` (1-based char index).  
+    
+### Grade 5/10 — Positioned Errors  
+  
+* Same as Grade 4 plus:  
+* Accurate error position: if the first error is at character 57, output `ERROR:57`.   
+  * Examples of errors: invalid token, unexpected end, two operators in a row, leading operator without operand, etc.  
+
 
