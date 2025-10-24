@@ -24,7 +24,7 @@
 
 ### Error test files (expected to throw errors)
 
-| Test     | Status | Notes                                                                                                                     |
+| Test     | Status | Details                                                                                                                     |
 | -------- | :----: | ------------------------------------------------------------------------------------------------------------------------- |
 | Error 1  |    ✅   | Passes as expected.                                                                                                   |
 | Error 2  |    ✅   | Passes as expected.                                                                                                   |
@@ -39,7 +39,7 @@
 
 ### Valid test files (should process and return results)
 
-| Test    |  Status  | Notes                                                                                                                                                                                                                           |
+| Test    |  Status  | Details                                                                                                                                                                                                                           |
 | ------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Test 1  |     ✅    | Passes as expected.                                                                                                                                                                                                                              |
 | Test 2  |     ✅    | Passes as expected.                                                                                                                                                                                                                              |
