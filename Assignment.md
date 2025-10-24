@@ -82,4 +82,37 @@ The file contains either the result (single line) or `ERROR:<pos>.`
   * Precedence is just below unary operators (if you implement unary; see below).  
 * No specific length limits beyond “fits in Codespaces VM” (i.e., handle very long files efficiently).  
 * Maintain all prior features and error reporting.  
+  
+----
+  
+## Language Semantics (Recommended Defaults)  
+  
+### Tokens  
+  
+* Integers: `0` or `[1-9][0-9]*` (optionally with leading `+`/`-` if you implement unary).  
+* Floats (if implemented): forms accepted by `strtod` are okay (e.g., `12.34`, `.5`, `1e-3`).  
+* Operators: `+ - * / **`  
+* Parentheses: `(` `)`  
+* Whitespace: skip freely.  
+* Comments: entire line starting with `#` is ignored (from first non-space `#` to line end).  
+  
+### Precedence & Associativity  
+  
+From highest to lowest:  
+1. `**` (right-associative)  
+2. Unary `+` `-` (optional, left-to-right apply to a single primary)  
+3. `*` `/` (left-associative)  
+4. `+` `-` (left-associative)    
+> Note: You can reach 10/10 without unary `+`/`-`. If you do implement unary, document it and ensure it doesn’t break error positions.  
+  
+### Numeric Types & Output Formatting  
+  
+* Integers: use 64-bit (`long long`) for safety. Overflow handling is not required but certainly a bonus (document behavior if you detect it).
+* Floats: use `double` (`strtod`).
+* Result printing:
+  * If your evaluator is int-only: print integer like `-42`.
+  * If mixed numeric:
+    * If the final value is integral (e.g., `3.0`), print without decimal (e.g., `3`).
+    * Else print with `%.15g`.
+* Trailing spaces/newlines: one newline at end is fine.
 
